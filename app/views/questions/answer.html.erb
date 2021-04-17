@@ -1,0 +1,30 @@
+<h1>🏅 Stupid Coaching: </h1>
+
+<% @questions.each do |question| %>
+
+  <div class="question-answer">
+
+    <p class="upper-title" id="question">
+      <%= question %>
+      <p class="under-title">-- You</p>
+    </p>
+
+    <p class="upper-title" id="answer">
+      <% if question == "I am going to work" %>
+        <% @answer = "Great!" %>
+      <% elsif @question.chars.last == "?" %>
+        <% @answer = "Silly question, get dressed and go to work!" %>
+      <% else %>
+        <% @answer = "I don't care, get dressed and go to work!" %>
+      <% end %>
+      <%= @answer %>
+      <p class="under-title">-- Coach</p>
+    </p>
+
+  </div>
+
+<% end %>
+
+<div class="link">
+  <%= link_to "Ask coach another question 💪", ask_path, class: "link" %>
+</div>
